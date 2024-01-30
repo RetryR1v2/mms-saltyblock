@@ -26,11 +26,6 @@ function CheckSaltyStatus()
     end
 end
 
-Citizen.CreateThread(function()
-    Citizen.Wait(Config.InitialWaitTime * 1000)
-    CheckSaltyStatus()
-end)
-
 
 RegisterNetEvent('vorp:SelectedCharacter')
 AddEventHandler('vorp:SelectedCharacter', function()
