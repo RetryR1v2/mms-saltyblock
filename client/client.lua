@@ -6,7 +6,9 @@ function CheckSaltyStatus()
     while true do
         Citizen.Wait(Config.CheckTime * 1000)
         SaltyStatus = exports.saltychat:GetPluginState()
-        if SaltyStatus ~= 2 then
+        if SaltyStatus ~= 2 and Config.KickAfterXMin == true then
+            TriggerEvent('mms-saltyblock:client:KickAfterXMin')
+        elseif SaltyStatus ~= 2 then
             AnimpostfxPlay('skytl_0000_01clear')
             VORPcore.NotifyTip(Config.JoinTeamspeak, 10000)
         elseif SaltyStatus == 2 then
@@ -25,6 +27,23 @@ function CheckSaltyStatus()
         end
     end
 end
+
+RegisterNetEvent('mms-saltyblock:client:KickAfterXMin',function ()
+    local counter = Config.KickTime * 60
+    while SaltyStatus ~=2 do
+        SaltyStatus = exports.saltychat:GetPluginState()
+        AnimpostfxPlay('skytl_0000_01clear')
+        VORPcore.NotifyTip(counter .. Config.CountDownText, 5000)
+        Citizen.Wait(5000)
+        counter = counter -5
+        if SaltyStatus == 2 then
+            CheckSaltyStatus()
+        end
+        if counter <= 0 then
+            TriggerServerEvent('mms-saltyblock:server:dropplayer')
+        end
+    end
+end)
 
 
 RegisterNetEvent('vorp:SelectedCharacter')

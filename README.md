@@ -11,6 +11,7 @@
 
 - 1.1.0 Initial Release
 - 1.1.1 Fixed Bug that it Triggers in Char Selector
+- 1.1.2 Added Option to Kick Player after X Min
 
 
 # installation 

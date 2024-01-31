@@ -27,7 +27,10 @@ local function CheckVersion()
     end)
 end
 
-
+RegisterServerEvent('mms-saltyblock:server:dropplayer',function ()
+    local src = source
+    DropPlayer(src,Config.KickReason)
+end)
 
 --------------------------------------------------------------------------------------------------
 -- start version check
