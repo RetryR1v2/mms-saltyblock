@@ -14,6 +14,7 @@
 - 1.1.2 Added Option to Kick Player after X Min
 - 1.1.3 Now Can Set a Picture with Reminder to Join Discord
 - it now Blocks talking if you are dead
+- 1.1.4 Added SaltyCircle + 3D Text
 
 # installation 
 

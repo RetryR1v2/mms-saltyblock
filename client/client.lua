@@ -1,9 +1,10 @@
 local VORPcore = exports.vorp_core:GetCore()
 local FeatherMenu =  exports['feather-menu'].initiate()
+local BccUtils = exports['bcc-utils'].initiate()
 
 local SaltyStatus = 0
 local Dead = false
-
+local DoDrawMarker = false
 ---------------------------------------------------------------------------------------------------------
 --------------------------------------------- Main Menu -------------------------------------------------
 ---------------------------------------------------------------------------------------------------------
@@ -168,3 +169,25 @@ RegisterNetEvent("vorp_core:Client:OnPlayerRespawn",function()
         TriggerServerEvent('mms-saltyblock:server:PlayerAlive')
     end
 end)
+
+RegisterNetEvent('SaltyChat_VoiceRangeChanged')
+AddEventHandler('SaltyChat_VoiceRangeChanged', function(VoiceRange)
+    if Config.UseSaltyCircle then
+        Range = tonumber(VoiceRange)
+        local myPos = GetEntityCoords(PlayerPedId())
+        DrawIt(Range,myPos)
+        Citizen.Wait(250)
+    end
+end)
+
+function DrawIt(Range,myPos)
+    local Counter = 0
+    while Counter < Config.DrawTime do
+        if Config.Show3dText then
+            BccUtils.Misc.DrawText3D(myPos.x, myPos.y, myPos.z, Config.TextDrawn .. Range)
+        end
+        Citizen.Wait(3)
+        DrawMarker(Config.MarkerType, myPos.x, myPos.y, myPos.z - 0.7, 0, 0, 0, 0, 0,0, Range * 2, Range * 2, 0.80, Config.Red, Config.Green, Config.Blue, Config.Alpha, 0, 0, 0)
+        Counter = Counter + 14
+    end
+end

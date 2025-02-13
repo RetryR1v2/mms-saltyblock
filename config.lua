@@ -17,3 +17,19 @@ Config.PictureLink = 'https://i.postimg.cc/2SjVkKZ2/1400x722.png'
 -- Check for Death and Block Communication
 Config.BlockDeathCom = true
 Config.YouAreDead = 'Saltyblock: Du bist Gestorben und Kannst nicht mehr Sprechen.'
+
+
+--- Draw SaltyCircle
+
+Config.UseSaltyCircle = true
+Config.DrawTime = 1000  --- 1000 = 1 Sek
+
+Config.MarkerType = 0x94FDAE17
+--RGB Color
+Config.Red = 255
+Config.Green = 0
+Config.Blue = 0
+Config.Alpha = 0.5  -- 0.1 - 1.0
+
+Config.Show3dText = true
+Config.TextDrawn = 'Neue Sprachreichweite: '
