@@ -12,7 +12,8 @@
 - 1.1.0 Initial Release
 - 1.1.1 Fixed Bug that it Triggers in Char Selector
 - 1.1.2 Added Option to Kick Player after X Min
-
+- 1.1.3 Now Can Set a Picture with Reminder to Join Discord
+- it now Blocks talking if you are dead
 
 # installation 
 
@@ -21,8 +22,9 @@
 
 # Required
 
-vorp_core ( just for Notification you can make it stand alone if you wish)
+vorp_core ( just for Notification you can make it stand alone if you wish )
+Feather-Menu For Show Picture
 
 # CREDITS
-- Discord markusmueller 
-- https://github.com/RetryR1v2 
+- Discord: https://discord.gg/Hua9DFXZYN
+- GitHub: https://github.com/RetryR1v2 

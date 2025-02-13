@@ -32,6 +32,16 @@ RegisterServerEvent('mms-saltyblock:server:dropplayer',function ()
     DropPlayer(src,Config.KickReason)
 end)
 
+RegisterServerEvent('mms-saltyblock:server:PlayerDead',function()
+    local src = source
+    exports.saltychat:SetPlayerAlive(src,false)
+end)
+
+RegisterServerEvent('mms-saltyblock:server:PlayerAlive',function()
+    local src = source
+    exports.saltychat:SetPlayerAlive(src,true)
+end)
+
 --------------------------------------------------------------------------------------------------
 -- start version check
 --------------------------------------------------------------------------------------------------
