@@ -8,8 +8,12 @@ local DoDrawMarker = false
 local ImAdmin = false
 
 RegisterNetEvent('mms-saltyblock:client:ReciveUserGroup',function(Group)
-    if Config.IgnoreAdmins and Config.AdminGroup == Group then
-        ImAdmin = true
+    if Config.IgnoreAdmins then
+        for h,v in ipairs(Config.AdminGroups) do
+            if v.AdminGroup == Group then
+                ImAdmin = true
+            end
+        end
     end
 end)
 ---------------------------------------------------------------------------------------------------------
