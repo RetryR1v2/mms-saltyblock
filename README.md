@@ -15,6 +15,7 @@
 - 1.1.3 Now Can Set a Picture with Reminder to Join Discord
 - it now Blocks talking if you are dead
 - 1.1.4 Added SaltyCircle + 3D Text
+- 1.1.5 Added Ignore Admins
 
 # installation 
 

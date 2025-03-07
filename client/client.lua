@@ -5,6 +5,13 @@ local BccUtils = exports['bcc-utils'].initiate()
 local SaltyStatus = 0
 local Dead = false
 local DoDrawMarker = false
+local ImAdmin = false
+
+RegisterNetEvent('mms-saltyblock:client:ReciveUserGroup',function(Group)
+    if Config.IgnoreAdmins and Config.AdminGroup == Group then
+        ImAdmin = true
+    end
+end)
 ---------------------------------------------------------------------------------------------------------
 --------------------------------------------- Main Menu -------------------------------------------------
 ---------------------------------------------------------------------------------------------------------
@@ -138,20 +145,28 @@ end)
 RegisterNetEvent('vorp:SelectedCharacter')
 AddEventHandler('vorp:SelectedCharacter', function()
     Citizen.Wait(Config.InitialWaitTime * 1000)
-    CheckSaltyStatus()
+    TriggerServerEvent('mms-saltyblock:server:GetPlayerGourp')
+    Citizen.Wait(1000)
+    if not ImAdmin then
+        CheckSaltyStatus()
+    end
 end)
 
 
 if Config.Debug then
 Citizen.CreateThread(function()
     Citizen.Wait(Config.InitialWaitTime * 1000)
-    CheckSaltyStatus()
+    TriggerServerEvent('mms-saltyblock:server:GetPlayerGourp')
+    Citizen.Wait(1000)
+    if not ImAdmin then
+        CheckSaltyStatus()
+    end
 end)
 end
 
 
 AddEventHandler("vorp_core:Client:OnPlayerDeath",function(killerserverid,causeofdeath)
-    if Config.BlockDeathCom then
+    if not ImAdmin and Config.BlockDeathCom then
         TriggerServerEvent('mms-saltyblock:server:PlayerDead')
         Citizen.Wait(5000)
         VORPcore.NotifyDead(Config.YouAreDead,nil,nil,10000)
@@ -159,13 +174,13 @@ AddEventHandler("vorp_core:Client:OnPlayerDeath",function(killerserverid,causeof
 end)
 
 RegisterNetEvent("vorp_core:Client:OnPlayerRevive",function()
-    if Config.BlockDeathCom then
+    if not ImAdmin and Config.BlockDeathCom then
         TriggerServerEvent('mms-saltyblock:server:PlayerAlive')
     end
 end)
 
 RegisterNetEvent("vorp_core:Client:OnPlayerRespawn",function()
-    if Config.BlockDeathCom then
+    if not ImAdmin and Config.BlockDeathCom then
         TriggerServerEvent('mms-saltyblock:server:PlayerAlive')
     end
 end)

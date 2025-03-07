@@ -27,6 +27,8 @@ local function CheckVersion()
     end)
 end
 
+local VORPcore = exports.vorp_core:GetCore()
+
 RegisterServerEvent('mms-saltyblock:server:dropplayer',function ()
     local src = source
     DropPlayer(src,Config.KickReason)
@@ -42,6 +44,12 @@ RegisterServerEvent('mms-saltyblock:server:PlayerAlive',function()
     exports.saltychat:SetPlayerAlive(src,true)
 end)
 
+RegisterServerEvent('mms-saltyblock:server:GetPlayerGourp',function()
+    local src = source
+    local Character = VORPcore.getUser(src).getUsedCharacter
+    local Group = Character.group
+    TriggerClientEvent('mms-saltyblock:client:ReciveUserGroup',src,Group)
+end)
 --------------------------------------------------------------------------------------------------
 -- start version check
 --------------------------------------------------------------------------------------------------
