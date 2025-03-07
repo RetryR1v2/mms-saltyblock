@@ -5,7 +5,10 @@
 # Features
  
 - Just Saltyblock if you are not in the Ingame Channel you Get screen Effect and Notification to join Teamspeak
-
+- Blocks Communication On Death
+- Ignore Admins
+- You can use Picture or Screen Effect
+- Kicks Player after a Time if not Join in Ingame Channel
 
 # Changelog
 
