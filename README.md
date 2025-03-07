@@ -5,6 +5,7 @@
 # Features
  
 - Just Saltyblock if you are not in the Ingame Channel you Get screen Effect and Notification to join Teamspeak
+- Shows a Cricle on Voice Range Changed
 - Blocks Communication On Death
 - Ignore Admins
 - You can use Picture or Screen Effect
@@ -27,8 +28,8 @@
 
 # Required
 
-vorp_core ( just for Notification you can make it stand alone if you wish )
-Feather-Menu For Show Picture
+- vorp_core
+- Feather-Menu For Show Picture
 
 # CREDITS
 - Discord: https://discord.gg/Hua9DFXZYN
