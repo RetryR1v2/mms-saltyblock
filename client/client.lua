@@ -87,7 +87,7 @@ function CheckSaltyStatus()
                 SaltyBlockMenu:Open({
                     startupPage = SaltyBlockMenuPage1,
                 })
-            else
+            elseif Config.BlockScreen then
                 AnimpostfxPlay('skytl_0000_01clear')
                 VORPcore.NotifyTip(Config.JoinTeamspeak, 5000)
             end
@@ -127,12 +127,13 @@ RegisterNetEvent('mms-saltyblock:client:KickAfterXMin',function ()
             VORPcore.NotifyTip(counter .. Config.CountDownText, 5000)
             Citizen.Wait(5000)
             counter = counter -5
-        else
-        AnimpostfxPlay('skytl_0000_01clear')
-        VORPcore.NotifyTip(counter .. Config.CountDownText, 5000)
-        Citizen.Wait(5000)
-        counter = counter -5
+        elseif Config.BlockScreen then
+            AnimpostfxPlay('skytl_0000_01clear')
+            VORPcore.NotifyTip(counter .. Config.CountDownText, 5000)
+            Citizen.Wait(5000)
+            counter = counter -5
         end
+        
         -- Back to SaltyStatus Check
         if SaltyStatus == 2 then
             CheckSaltyStatus()

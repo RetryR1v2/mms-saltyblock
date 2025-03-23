@@ -20,6 +20,8 @@
 - it now Blocks talking if you are dead
 - 1.1.4 Added SaltyCircle + 3D Text
 - 1.1.5 Added Ignore Admins
+- 1.1.6 You Can Now Choose Betweend Screen FX or Picture Mode to Block the Screen
+- Or you can Disable Screen Effect at All Config.BlockScreen = false Config.UsePicture = false
 
 # installation 
 

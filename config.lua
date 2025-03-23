@@ -8,8 +8,9 @@ Config.AdminGroups = {
     { AdminGroup = 'admin' },
     { AdminGroup = 'support' },
     { AdminGroup = 'guide' },
-
 }
+
+Config.BlockScreen = true
 
 Config.InitialWaitTime = 4  -- For Players with bad Computer you Should let it 60 Seconds 
 Config.CheckTime = 10  -- Time in Sec 10 Seconds to check if player is in SaltyChat or not 
